@@ -1,5 +1,3 @@
-
-
 #include "MyMath.h"
 
 Vector2 Vector2::Add(Vector2 B)
@@ -66,10 +64,20 @@ float Vector2::X()
 	return m_x;
 }
 
+
 float Vector2::Y()
 {
 	// allows functions outside of class to use member variable m_y without accessing it
 	return m_y;
+}
+float Vector2::Lerp(Vector2 point1, Vector2 point2)
+{
+	float lerp;
+	point2 = (point2.m_y - point1.m_y) * (point2.m_y - point1.m_y);
+	point1 = (point2.m_x - point1.m_x) * (point2.m_x - point1.m_x);
+	lerp = sqrt(point2 + point1);
+	return lerp;
+
 }
 
 Vector3 Vector3::Add(Vector3 B)
@@ -147,6 +155,11 @@ float Vector3::Z()
 	return m_z;
 }
 
+float Vector3::Lerp(float point1, float point2)
+{
+	return 0.0f;
+}
+
 Vector4 Vector4::Add(Vector4 B)
 {
 	// a vector4 instance's coordinate values are  added to another vector4's coordinate values 
@@ -220,6 +233,16 @@ float Vector4::W()
 	// allows functions outside of class to use member variable m_w without accessing it
 	return m_w;
 }
+
+//float Vector4::Lerp(float point1, float point2)
+//{
+//	float lerp;
+//	point2 = (point2.m_y - point1.m_y) * (point2.m_y - point1.m_y);
+//	point1 = (point2.m_x - point1.m_x) * (point2.m_x - point1.m_x);
+//	lerp = sqrt(point2 + point1);
+//	return lerp;
+//
+//}
 
 Matrix2x2::Matrix2x2(float x1, float x2, float y1, float y2)
 {

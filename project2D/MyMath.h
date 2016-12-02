@@ -8,14 +8,14 @@
 
 using namespace std;
 
-#define pi = 3.14159265359
+#define pi 3.14159265359f
 class Vector2
 {
 private:
+	
+public:
 	float m_x = 0.0f; // x coordinate of a Vector2 
 	float m_y = 0.0f; // y coordinate of a Vector2
-public:
-
 	
 	Vector2() {};
 	Vector2(float x1, float y1) // constructor of a Vector2 
@@ -28,8 +28,9 @@ public:
 	Vector2 Normalize(); // returns the Vector2, Normalized
 	float DotProduct(Vector2 B); // returns dot product
 	bool operator == (Vector2 &result); // overloaded == operator to compare Vectors
-	float X(); // returns x coordinate value
+	float X(); // returns x coordinate valu
 	float Y(); // returns y coordinate value
+	float Lerp(Vector2 point1, Vector2 point2);
 };
 
 
@@ -54,6 +55,7 @@ public:
 	float X(); // returns x coordinate value
 	float Y(); // returns y coordinate value
 	float Z(); // returns z coordinate value
+	float Lerp(float point1, float point2);
 };
 
 class Vector4
@@ -78,6 +80,7 @@ public:
 	float Y(); // returns y coordinate value
 	float Z(); // returns z coordinate value
 	float W(); // returns w coordinate value
+	//float Lerp(float point1, float point2);
 };
 
 class Matrix2x2

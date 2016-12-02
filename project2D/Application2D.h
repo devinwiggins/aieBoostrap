@@ -3,6 +3,9 @@
 #include "Application.h"
 #include "Renderer2D.h"
 #include "Audio.h"
+#include "MyMath.h"
+
+class Player;
 
 class Application2D : public aie::Application {
 public:
@@ -15,7 +18,7 @@ public:
 
 	virtual void update(float deltaTime);
 	virtual void draw();
-
+	
 protected:
 
 	aie::Renderer2D*	m_2dRenderer;
@@ -26,4 +29,24 @@ protected:
 
 	float m_cameraX, m_cameraY;
 	float m_timer;
+	float m_rotDegrees;
+	
+	Player* m_player;
 };
+
+class Player
+{
+public:
+	Player() {
+		m_dead = false;
+	}
+	bool m_dead;
+	/*Vector2 m_shoot = m_position.m_x;
+	Vector2 PlayerShoot(Vector2 v) { m_shoot.m_= =+}*/
+	Vector2 m_position;
+};
+
+//class Enemy : public Enemy
+//{
+//
+//};
