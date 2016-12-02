@@ -64,7 +64,6 @@ protected:
 
 	// if set to false, the main game loop will exit
 	bool			m_gameOver;
-	
 	unsigned int	m_fps;
 
 };

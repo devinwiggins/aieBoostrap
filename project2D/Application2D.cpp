@@ -2,6 +2,7 @@
 #include "Texture.h"
 #include "Font.h"
 #include "Input.h"
+#include "MyMath.h"
 
 Application2D::Application2D() {
 
@@ -69,6 +70,9 @@ void Application2D::update(float deltaTime) {
 
 void Application2D::draw() {
 
+	aie::Input* input = aie::Input::getInstance();
+	float rot = m_timer;
+	float rotdegrees = 
 	// wipe the screen to the background colour
 	clearScreen();
 
@@ -87,6 +91,7 @@ void Application2D::draw() {
 	m_2dRenderer->drawSprite(m_shipTexture, 600, 400, 0, 0, m_timer, 1);
 
 	// draw a thin line
+	if(input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT))
 	m_2dRenderer->drawLine(300, 300, 600, 400, 2, 1);
 
 	// draw a moving purple circle
@@ -105,7 +110,7 @@ void Application2D::draw() {
 	char fps[32];
 	sprintf_s(fps, 32, "FPS: %i", getFPS());
 	m_2dRenderer->drawText(m_font, fps, 0, 720 - 32);
-	m_2dRenderer->drawText(m_font, "Press Space for sound!", 0, 720 - 64);
+	m_2dRenderer->drawText(m_font, "Press Space for Sound!", 0, 720 - 64);
 
 	// done drawing sprites
 	m_2dRenderer->end();
