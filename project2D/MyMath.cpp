@@ -58,6 +58,7 @@ bool Vector2::operator==(Vector2 & result)
 	return m_x == result.m_x && m_y == result.m_y;
 }
 
+
 float Vector2::X()
 {
 	// allows functions outside of class to use member variable m_x without accessing it
@@ -73,11 +74,10 @@ float Vector2::Y()
 float Vector2::Lerp(Vector2 point1, Vector2 point2)
 {
 	float lerp;
-	point2 = (point2.m_y - point1.m_y) * (point2.m_y - point1.m_y);
+	/*point2 = (point2.m_y - point1.m_y) * (point2.m_y - point1.m_y);
 	point1 = (point2.m_x - point1.m_x) * (point2.m_x - point1.m_x);
-	lerp = sqrt(point2 + point1);
+	lerp = sqrt(point2 + point1);*/
 	return lerp;
-
 }
 
 Vector3 Vector3::Add(Vector3 B)
@@ -309,7 +309,7 @@ bool Matrix2x2::operator==(Matrix2x2 & result)
 }
 
 
-ofstream & operator<<(ofstream & output, Matrix2x2 & n)
+std::ofstream & operator<<(std::ofstream & output, Matrix2x2 & n)
 {
 	// this overloaded operator allows me to be able to print a Matrix to a file
 	output << "X {" << setDecLimit(n.m_Matrix[0], 3u) << ", " << setDecLimit(n.m_Matrix[1], 3u) <<"}\n";
@@ -318,7 +318,7 @@ ofstream & operator<<(ofstream & output, Matrix2x2 & n)
 	return output;
 }
 
-ofstream & operator<<(ofstream & output, Matrix3x3 & n)
+std::ofstream & operator<<(std::ofstream & output, Matrix3x3 & n)
 {
 	// this overloaded operator allows me to be able to print a Matrix to a file
 	output << "X {" << setDecLimit(n.m_Matrix[0], 3u) << ", " << setDecLimit(n.m_Matrix[1], 3u) << ", " << setDecLimit(n.m_Matrix[2], 3u) << "}\n";
@@ -328,7 +328,7 @@ ofstream & operator<<(ofstream & output, Matrix3x3 & n)
 	return output;
 }
 
-ofstream & operator<<(ofstream & output, Matrix4x4 & n)
+std::ofstream & operator<<(std::ofstream & output, Matrix4x4 & n)
 {
 	// this overloaded operator allows me to be able to print a Matrix to a file
 	output << "X {" << setDecLimit(n.m_Matrix[0], 3u) << ", " << setDecLimit(n.m_Matrix[1], 3u) << ", " << setDecLimit(n.m_Matrix[2], 3u) << ", " << setDecLimit(n.m_Matrix[3], 3u) << "}\n";

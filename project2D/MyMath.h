@@ -4,9 +4,8 @@
 #include <math.h>
 #include <cassert>
 #include <fstream>
-#include <iomanip>
 
-using namespace std;
+
 
 #define pi 3.14159265359f
 class Vector2
@@ -96,7 +95,7 @@ public:
 	Vector2 operator * (Vector2 k); // overloaded multiplication for Matrix times a Vector
 	Vector2 Mult(Vector2 k); // returns the product of a Matrix2x2 and a Vector2
 	bool operator == (Matrix2x2 & result); // overloaded = operator to compare Vectors
-	friend ofstream& operator << (ofstream & output, Matrix2x2 &n); // prints matrix to file
+	friend std::ofstream& operator << (std::ofstream & output, Matrix2x2 &n); // prints matrix to file
 	
 };
 
@@ -115,7 +114,7 @@ public:
 	Matrix3x3 RotateX(float d); // rotates in respect to X axis
 	Matrix3x3 RotateY(float d); // rotates in respect to Y axis
 	Matrix3x3 RotateZ(float d); // rotates in respect to z axis
-	friend ofstream& operator << (ofstream & output, Matrix3x3 &n); //prints matrix to file
+	friend std::ofstream& operator << (std::ofstream & output, Matrix3x3 &n); //prints matrix to file
 
 };
 
@@ -133,7 +132,7 @@ public:
 	Matrix4x4 RotateX(float d); // rotates in respect to x axis
 	Matrix4x4 RotateY(float d); // rotates in respect to y axis
 	Matrix4x4 RotateZ(float d); // rotates in respect to z axis
-	friend ofstream& operator << (ofstream & output, Matrix4x4 &n); // prints matrix to file
+	friend std::ofstream& operator << (std::ofstream & output, Matrix4x4 &n); // prints matrix to file
 };
 
 float setDecLimit(float value, unsigned int decimals);
