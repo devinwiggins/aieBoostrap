@@ -80,6 +80,7 @@ float Vector2::Lerp(Vector2 point1, Vector2 point2)
 	return lerp;
 }
 
+
 Vector3 Vector3::Add(Vector3 B)
 {
 	// a vector3 instance's coordinate values are  added to another vector3's coordinate values 
