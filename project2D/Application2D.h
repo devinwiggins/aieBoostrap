@@ -3,8 +3,7 @@
 #include "Application.h"
 #include "Renderer2D.h"
 #include "Audio.h"
-#include "MyMath.h"
-#include <ctime>
+
 class Player;
 
 class Application2D : public aie::Application {
@@ -44,6 +43,7 @@ class Player
 {
 public:
 	Player() {
+		m_mass = 200;
 		m_dead = false; // Player is not yet dead
 		m_position.m_x = 1280 / 2; // initializes the position to the middle of the screen
 		m_position.m_y = 720 / 2;
@@ -52,18 +52,10 @@ public:
 	}
 	void PlayerCollision();
 	bool AddForce(Vector2 Force, float deltaTime);
-	Vector2 Velocity(Player n) {
-
-		Vector2 currentPlace = n.m_position;
-		Vector2 prevPlace = n.m_position;
-
-		n.m_position.Normalize();
-
-		return Vector2();
-	}
 	Vector2 m_position; // player Position
-	Vector2 m_isShooting;
+	Vector2 m_isShooting; //
 	Vector2 shoot;	
 	bool m_dead;
 	bool m_collision;
+	int m_mass;
 };

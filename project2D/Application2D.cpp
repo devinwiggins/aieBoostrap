@@ -2,10 +2,10 @@
 #include "Texture.h"
 #include "Font.h"
 #include "Input.h"
-#include "MyMath.h"
 #include "Player.h"
 #include <fstream>
 
+#define pi 3.14159
 Application2D::Application2D() {
 
 }
@@ -153,10 +153,10 @@ void Application2D::draw() {
 
 void Application2D::BorderCollision()
 {
-	(m_player->m_position.m_x >= 1281) ? m_player->m_position.m_x = 0 : m_player->m_position.m_x = m_player->m_position.m_x;
-	(m_player->m_position.m_x <= -1) ? m_player->m_position.m_x = 1280 : m_player->m_position.m_x = m_player->m_position.m_x;
-	(m_player->m_position.m_y >= 721) ? m_player->m_position.m_y = 0 : m_player->m_position.m_y = m_player->m_position.m_y;
-	(m_player->m_position.m_y <= -1) ? m_player->m_position.m_y = 720 : m_player->m_position.m_y = m_player->m_position.m_y;
+	(m_player->m_position.m_x >= 1281) ? m_player->m_position.m_x -= m_player->m_position.m_x : m_player->m_position.m_x = m_player->m_position.m_x;
+	(m_player->m_position.m_x <= -1) ? m_player->m_position.m_x += 1280 : m_player->m_position.m_x = m_player->m_position.m_x;
+	(m_player->m_position.m_y >= 721) ? m_player->m_position.m_y -= m_player->m_position.m_y : m_player->m_position.m_y = m_player->m_position.m_y;
+	(m_player->m_position.m_y <= -1) ? m_player->m_position.m_y += 720 : m_player->m_position.m_y = m_player->m_position.m_y;
 }
 
 
@@ -174,7 +174,7 @@ void Application2D::BorderCollision()
 //	file.close();
 //
 //}
-
+//
 //void Application2D::LoadGameState()
 //{
 //	std::ifstream file;
